@@ -1,0 +1,15 @@
+<launch>
+    <arg name="date" default="230629"/>
+    <arg name="file_name" default="2023-06-29_21_08_31_282"/>
+
+    <node pkg="depth_to_pcd" type="pointcloud_publisher.py" name="pointcloud_publisher" output="screen">
+        <param name="date" value="$(arg date)" /> 
+        <param name="file_name" value="$(arg file_name)" /> 
+    </node>
+
+    <node pkg="depth_to_pcd" type="image_publisher.py" name="image_publisher" output="screen">
+        <param name="date" value="$(arg date)" /> 
+        <param name="file_name" value="$(arg file_name)" /> 
+    </node>
+
+</launch>
